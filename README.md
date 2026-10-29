@@ -41,3 +41,11 @@ Fotografias ilustrativas do [Unsplash](https://unsplash.com/license), salvas em 
 - Quarto: `photo-1611892440504-42a792e24d32`.
 
 Fontes DM Sans e Manrope carregadas pelo Google Fonts, com fontes de sistema como alternativa. As imagens são referências visuais, não fotografias de projetos reais da marca fictícia.
+
+## Publicação automática no GitHub Pages
+
+O workflow `.github/workflows/deploy.yml` instala as dependências com `npm ci`, compila o site e publica `dist/` a cada push na branch `main`. Também pode ser executado manualmente na aba Actions.
+
+No GitHub, em **Settings → Pages → Build and deployment → Source**, selecione **GitHub Actions**. O repositório deve ser público para usar Pages no plano gratuito. As permissões de publicação ficam restritas ao job de deploy.
+
+Para domínio próprio, configure o endereço em **Settings → Pages → Custom domain**. No Cloudflare, crie um registro **CNAME** para o subdomínio desejado apontando para **jorglcs.github.io**, com **DNS only** e TTL automático. O destino não deve conter o nome do repositório nem `https://`. Aguarde a validação de DNS e a emissão do certificado e ative **Enforce HTTPS** no GitHub. Não é necessário um arquivo CNAME quando a publicação usa GitHub Actions.
